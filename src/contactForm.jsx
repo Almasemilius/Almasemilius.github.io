@@ -1,11 +1,13 @@
-import React, { useRef } from "react";
+import React, { useRef, useState } from "react";
 import InputField from "./inputField";
 import Textarea from "./textarea";
 import SubmitButton from "./submitButton";
 import emailjs from "@emailjs/browser";
+import Tick from "./assets/svgs/tick";
 
 export default function ContactForm() {
   const form = useRef();
+  const [successModal, setSuccessModal] = useState(false)
   const sendEmail = (e) => {
     e.preventDefault();
     emailjs
@@ -18,6 +20,10 @@ export default function ContactForm() {
       .then(
         (result) => {
           form.current.reset();
+          setSuccessModal(true)
+          setTimeout(() => {
+            setSuccessModal(false);
+          }, 2000);
         },
         (error) => {
           console.log(error.text);
@@ -46,6 +52,14 @@ export default function ContactForm() {
         <Textarea />
         <SubmitButton />
       </form>
+      <div className={`${successModal ? 'fixed' : 'hidden'} inset-0 w-full h-screen backdrop-blur-sm justify-center items-center flex p-5`}>
+          <div className="w-3/4 h-1/3 flex flex-col items-center border border-primary rounded-md">
+            <Tick />
+            <div>
+              <span>Message Sent Successfully</span>
+            </div>
+          </div>
+      </div>
     </div>
   );
 }

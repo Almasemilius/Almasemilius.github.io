@@ -15,7 +15,7 @@ export default function Header(props) {
         <div className="text-xl lg:text-2xl">
           <p>I am a web developer.</p>
         </div>
-        <div onClick={() => props.scrollToSection(1)} className="absolute bottom-7 left-0 right-0 w-20 h-10 mx-auto">
+        <div onClick={() => props.scrollToSection(1)} className="absolute cursor-pointer bottom-7 left-0 right-0 w-20 h-10 mx-auto">
           <ArrowDown />
         </div>
       </div>
