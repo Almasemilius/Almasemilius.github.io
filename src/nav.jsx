@@ -9,17 +9,17 @@ export default function Nav(props) {
   };
   return (
     <div className="w-full bg-primary h-[10%] lg:h-[15%] relative">
-      <nav className="flex px-5 lg:px-0 container w-full justify-between h-full items-center sticky mx-auto text-quinary">
+      <nav className="flex px-5 lg:container  w-full justify-between h-full items-center sticky mx-auto text-quinary">
         <div>
           <span className="text-quinary hover:text-primary font-tilt">
             Almas
           </span>
         </div>
         <div className="md:flex justify-evenly gap-20 hidden">
-          <span onClick={() => props.scrollToSection(0)} className="">Home</span>
-          <span onClick={() => props.scrollToSection(1)} className="">About Me</span>
-          <span onClick={() => props.scrollToSection(2)} className="">Projects</span>
-          <span onClick={() => props.scrollToSection(3)} className="">Contact Me</span>
+          <span onClick={() => props.scrollToSection(0)} className="span-link">Home</span>
+          <span onClick={() => props.scrollToSection(1)} className="span-link">About Me</span>
+          <span onClick={() => props.scrollToSection(2)} className="span-link">Projects</span>
+          <span onClick={() => props.scrollToSection(3)} className="span-link">Contact Me</span>
         </div>
         <div className="md:hidden">
           <MenuIcon toggleNav={toggleNav} />

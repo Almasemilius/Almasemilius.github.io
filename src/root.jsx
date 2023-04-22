@@ -13,25 +13,15 @@ import AlpineSvg from "./assets/svgs/alpine";
 import TechCard from "./techCard";
 import HeaderText from "./headerText";
 import ProjectCard from "./projectCard";
-import InputField from "./inputField";
-import Textarea from "./textarea";
 import DysanMedia from "./assets/images/dysanmedia.png";
 import Akilistars from "./assets/images/akilistars.png";
 import Valley from "./assets/images/valley.png";
-import Github from "./assets/svgs/github";
-import LinkedIn from "./assets/svgs/linkedIn";
-import Twitter from "./assets/svgs/twitter";
-import Instagram from "./assets/svgs/instagram";
 import Phone from "./assets/svgs/phone";
 import Mail from "./assets/svgs/mail";
-import SubmitButton from "./submitButton";
 import ContactForm from "./contactForm";
+import Footer from "./footer";
 
 export default function Root() {
-  // const home = useRef();
-  // const about = useRef();
-  // const projects = useRef();
-  // const contact = useRef();
 
   const sectionRefs = useRef([]);
   function scrollToSection(sectionIndex) {
@@ -44,13 +34,13 @@ export default function Root() {
         <Nav scrollToSection={scrollToSection}/>
         <Header />
       </div>
-      <div className="min-h-screen container lg:py-20 px-5 lg:px-0">
+      <div ref={el => sectionRefs.current[1] = el} className="min-h-screen lg:container lg:py-20 px-5 lg:px-0">
         <HeaderText title="About Me" />
-        <div ref={el => sectionRefs.current[1] = el} className="grid lg:grid-cols-2 gap-5">
+        <div className="grid lg:grid-cols-2 gap-5 lg:container">
           <AboutMeImg />
           <AboutMeText />
         </div>
-        <div className="w-full">
+        <div className="w-full lg:container">
           <div className="py-10">
             <HeaderText title="Technologies" />
           </div>
@@ -79,11 +69,11 @@ export default function Root() {
           </div>
         </div>
       </div>
-      <div ref={el => sectionRefs.current[2] = el} className="container">
+      <div ref={el => sectionRefs.current[2] = el} className="lg:container">
         <div className="lg:py-10">
           <HeaderText title="projects" />
         </div>
-        <div className="grid px-5 lg:grid-cols-3 gap-10">
+        <div className="grid px-5 lg:px-0 lg:grid-cols-3 gap-10">
           <ProjectCard
             name="dysanmedia"
             image={DysanMedia}
@@ -104,13 +94,13 @@ export default function Root() {
           />
         </div>
       </div>
-      <div ref={el => sectionRefs.current[3] = el} className="w-full px-5 lg:px-0 container">
+      <div ref={el => sectionRefs.current[3] = el} className="w-full px-5 lg:px-0 lg:container">
         <div className="min-h-3/5">
-          <div className="py-10 lg:px-0">
+          <div className="py-10 lg:px-0 lg:container">
             <HeaderText title="Contact" />
-            <div className="grid lg:grid-cols-2 gap-5">
+            <div className="grid lg:grid-cols-2 gap-5 lg:container">
               <ContactForm />
-              <div className="px-5 lg:px-0 p-10">
+              <div className="px-5 lg:p-10">
                 <ul className="flex flex-col list-inside space-y-5 text-base lg:text-lg">
                   <li>
                     <a
@@ -136,17 +126,7 @@ export default function Root() {
           </div>
         </div>
       </div>
-      <div className="w-full h-32 bg-default flex flex-col gap-3 justify-center items-center">
-        <div className="text-lg lg:text-3xl ">
-          <span>Almas</span>
-        </div>
-        <div className="flex gap-5">
-          <Github />
-          <LinkedIn />
-          <Twitter />
-          <Instagram />
-        </div>
-      </div>
+     <Footer />
     </div>
   );
 }

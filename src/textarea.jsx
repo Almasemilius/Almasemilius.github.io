@@ -10,6 +10,7 @@ export default function Textarea() {
         id="message"
         cols="15"
         rows="10"
+        required
       ></textarea>
     </div>  
   );

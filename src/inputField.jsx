@@ -6,6 +6,7 @@ export default function InputField(props) {
         <label className="px-1 text-lg" htmlFor={props.name}>{props.label}</label>
         <input
           id={props.name}
+          required
           {...props}
           className="border-2 border-gray-600 p-2 rounded-md"
         />

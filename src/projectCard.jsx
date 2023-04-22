@@ -9,7 +9,7 @@ export default function ProjectCard(props) {
           src={props.image}
           alt=""
         />
-        <div className="absolute w-48 h-14 inset-0 m-auto  lg:left-28 bg-black text-white bg-opacity-70 flex justify-center items-center">
+        <div className="absolute w-48 h-14 inset-0 m-auto bg-black text-white bg-opacity-70 flex justify-center items-center">
           <a href={props.link} >{props.name}</a>
         </div>
       </div>

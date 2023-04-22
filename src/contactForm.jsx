@@ -7,7 +7,6 @@ import emailjs from "@emailjs/browser";
 export default function ContactForm() {
   const form = useRef();
   const sendEmail = (e) => {
-    // alert('Here')
     e.preventDefault();
     emailjs
       .sendForm(
@@ -18,7 +17,8 @@ export default function ContactForm() {
       )
       .then(
         (result) => {
-          console.log(result.text);
+          form.current.reset()
+
         },
         (error) => {
           console.log(error.text);

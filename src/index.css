@@ -13,3 +13,7 @@
 .icon-tech{
     @apply h-16 w-16 lg:h-28 lg:w-28;
 }
+
+.span-link{
+    @apply cursor-pointer;
+}
