@@ -1,9 +1,13 @@
+@import url('https://fonts.googleapis.com/css2?family=Sedgwick+Ave+Display&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display+SC&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bodoni+Moda&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cousine&display=swap');
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 .icon-dim{
-    @apply w-7 h-7 lg:w-8 lg:h-8 rounded-full ;
+    @apply w-8 h-8  rounded-full ;
 }
 
 .anime{

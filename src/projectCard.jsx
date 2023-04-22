@@ -1,4 +1,5 @@
 import React from "react";
+import LinkSvg from "./assets/svgs/linkSvg";
 
 export default function ProjectCard(props) {
   return (
@@ -9,11 +10,14 @@ export default function ProjectCard(props) {
           src={props.image}
           alt=""
         />
-        <div className="absolute w-48 h-14 inset-0 m-auto bg-black text-white bg-opacity-70 flex justify-center items-center">
-          <a href={props.link} >{props.name}</a>
+        <div className="absolute w-48 h-14 inset-0 m-auto bg-black text-white bg-opacity-70 flex justify-center items-center rounded-3xl">
+          <a className="flex items-center gap-1 " href={props.link} >
+            <LinkSvg />
+            {props.name}
+            </a>
         </div>
       </div>
-      <div className="p-1 text-justify ">
+      <div className="p-1 text-justify text-sm lg:text-base">
         <p>
          {props.description}
         </p>

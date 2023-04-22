@@ -19,7 +19,10 @@ export default {
         default: "#EAE0D5"
       },
       fontFamily : {
-        'tilt' : ['"Tilt Prism"', 'cursive']
+        sedgwick: ["Sedgwick Ave Display", "cursive"],
+        playfair: ["Playfair Display SC", "serif"],
+        bodoni: ["Bodoni Moda", "serif"],
+        cousine: ["Cousine", "monospace"],
       }
     },
   },
