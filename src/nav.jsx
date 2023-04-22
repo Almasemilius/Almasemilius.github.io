@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 import MenuIcon from "./assets/svgs/menuIcon";
+import CancelSvg from "./assets/svgs/cancelSvg";
 
-export default function Nav() {
+export default function Nav(props) {
   const [isOpen, setIsOpen] = useState(false);
   const toggleNav = () => {
     isOpen === true ? setIsOpen(false) : setIsOpen(true);
@@ -15,10 +16,10 @@ export default function Nav() {
           </span>
         </div>
         <div className="md:flex justify-evenly gap-20 hidden">
-          <span className="">Home</span>
-          <span className="">About Me</span>
-          <span className="">Projects</span>
-          <span className="">Contact Me</span>
+          <span onClick={() => props.scrollToSection(0)} className="">Home</span>
+          <span onClick={() => props.scrollToSection(1)} className="">About Me</span>
+          <span onClick={() => props.scrollToSection(2)} className="">Projects</span>
+          <span onClick={() => props.scrollToSection(3)} className="">Contact Me</span>
         </div>
         <div className="md:hidden">
           <MenuIcon toggleNav={toggleNav} />
@@ -31,15 +32,15 @@ export default function Nav() {
       >
         <div className="h-16 w-full text-right p-5">
           <button onClick={toggleNav} href="">
-            Cancel
+            <CancelSvg />
           </button>
         </div>
         <div className="w-full h-full p-10 z-10">
           <ul className="space-y-10">
-            <li>Home</li>
-            <li>About Me</li>
-            <li>Projects</li>
-            <li>Contact Me</li>
+            <li onClick={() => {props.scrollToSection(0); toggleNav}}>Home</li>
+            <li onClick={() => props.scrollToSection(1)}>About Me</li>
+            <li onClick={() => props.scrollToSection(2)}>Projects</li>
+            <li onClick={() => props.scrollToSection(3)}>Contact Me</li>
           </ul>
         </div>
       </div>

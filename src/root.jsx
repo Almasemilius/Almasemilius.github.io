@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useRef } from "react";
 import Nav from "./nav";
 import Header from "./header";
 import AboutMeText from "./aboutMeText";
@@ -25,17 +25,28 @@ import Instagram from "./assets/svgs/instagram";
 import Phone from "./assets/svgs/phone";
 import Mail from "./assets/svgs/mail";
 import SubmitButton from "./submitButton";
+import ContactForm from "./contactForm";
 
 export default function Root() {
+  // const home = useRef();
+  // const about = useRef();
+  // const projects = useRef();
+  // const contact = useRef();
+
+  const sectionRefs = useRef([]);
+  function scrollToSection(sectionIndex) {
+    sectionRefs.current[sectionIndex].scrollIntoView({ behavior: 'smooth' });
+  }
+
   return (
     <div className="bg-white">
-      <div className="h-screen">
-        <Nav />
+      <div ref={el => sectionRefs.current[0] = el} className="h-screen">
+        <Nav scrollToSection={scrollToSection}/>
         <Header />
       </div>
       <div className="min-h-screen container lg:py-20 px-5 lg:px-0">
         <HeaderText title="About Me" />
-        <div className="grid lg:grid-cols-2 gap-5">
+        <div ref={el => sectionRefs.current[1] = el} className="grid lg:grid-cols-2 gap-5">
           <AboutMeImg />
           <AboutMeText />
         </div>
@@ -68,7 +79,7 @@ export default function Root() {
           </div>
         </div>
       </div>
-      <div className="container">
+      <div ref={el => sectionRefs.current[2] = el} className="container">
         <div className="lg:py-10">
           <HeaderText title="projects" />
         </div>
@@ -93,28 +104,12 @@ export default function Root() {
           />
         </div>
       </div>
-      <div className="w-full px-5 lg:px-0 container">
+      <div ref={el => sectionRefs.current[3] = el} className="w-full px-5 lg:px-0 container">
         <div className="min-h-3/5">
           <div className="py-10 lg:px-0">
             <HeaderText title="Contact" />
             <div className="grid lg:grid-cols-2 gap-5">
-              <div className="w-full space-y-3 lg:space-y-0 p-5 lg:grid gap-5">
-                <InputField
-                  name="name"
-                  label="Name"
-                  type="text"
-                  placeholder="Enter your Name"
-                />
-                <InputField
-                  name="email"
-                  label="Email"
-                  type="email"
-                  placeholder="Enter your Email"
-                />
-                <Textarea />
-                <SubmitButton />
-                
-              </div>
+              <ContactForm />
               <div className="px-5 lg:px-0 p-10">
                 <ul className="flex flex-col list-inside space-y-5 text-base lg:text-lg">
                   <li>
