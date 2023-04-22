@@ -17,8 +17,7 @@ export default function ContactForm() {
       )
       .then(
         (result) => {
-          form.current.reset()
-
+          form.current.reset();
         },
         (error) => {
           console.log(error.text);
@@ -26,25 +25,27 @@ export default function ContactForm() {
       );
   };
   return (
-    <form
-      ref={form}
-      onSubmit={sendEmail}
-      className="w-full space-y-3 lg:space-y-0 p-5 lg:grid gap-5"
-    >
-      <InputField
-        name="name"
-        label="Name"
-        type="text"
-        placeholder="Enter your Name"
-      />
-      <InputField
-        name="email"
-        label="Email"
-        type="email"
-        placeholder="Enter your Email"
-      />
-      <Textarea />
-      <SubmitButton />
-    </form>
+    <div>
+      <form
+        ref={form}
+        onSubmit={sendEmail}
+        className="w-full space-y-3 lg:space-y-0 p-5 lg:grid gap-5"
+      >
+        <InputField
+          name="name"
+          label="Name"
+          type="text"
+          placeholder="Enter your Name"
+        />
+        <InputField
+          name="email"
+          label="Email"
+          type="email"
+          placeholder="Enter your Email"
+        />
+        <Textarea />
+        <SubmitButton />
+      </form>
+    </div>
   );
 }

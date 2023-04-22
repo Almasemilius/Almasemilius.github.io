@@ -8,15 +8,15 @@ export default function Nav(props) {
     isOpen === true ? setIsOpen(false) : setIsOpen(true);
   };
   return (
-    <div className="w-full bg-primary h-[10%] lg:h-[15%] relative">
+    <div className="w-full bg-primary h-[10%] lg:h-[15%] fixed z-20">
       <nav className="flex px-5 lg:container  w-full justify-between h-full items-center sticky mx-auto text-quinary">
-        <div>
-          <span className="text-quinary hover:text-primary font-tilt">
+        <div className="flex items-center">
+          <span onClick={() => props.scrollToSection(0)} className="text-quinary text-2xl lg:text-4xl font-sedgwick">
             Almas
           </span>
         </div>
         <div className="md:flex justify-evenly gap-20 hidden">
-          <span onClick={() => props.scrollToSection(0)} className="span-link">Home</span>
+          <span onClick={() => {props.scrollToSection(0); toggleNav()}} className="span-link">Home</span>
           <span onClick={() => props.scrollToSection(1)} className="span-link">About Me</span>
           <span onClick={() => props.scrollToSection(2)} className="span-link">Projects</span>
           <span onClick={() => props.scrollToSection(3)} className="span-link">Contact Me</span>
@@ -45,7 +45,7 @@ export default function Nav(props) {
         </div>
       </div>
       <div
-        className={`fixed left-0 top-0 w-full h-screen  z-10 ${
+        className={`fixed left-0 top-0 w-full h-screen  z-10 bg-black bg-opacity-50 transition-all duration-500 ${
           isOpen == true ? "" : "hidden"
         }`}
         onClick={toggleNav}

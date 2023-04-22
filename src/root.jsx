@@ -22,19 +22,21 @@ import ContactForm from "./contactForm";
 import Footer from "./footer";
 
 export default function Root() {
-
   const sectionRefs = useRef([]);
   function scrollToSection(sectionIndex) {
-    sectionRefs.current[sectionIndex].scrollIntoView({ behavior: 'smooth' });
+    sectionRefs.current[sectionIndex].scrollIntoView({ behavior: "smooth" });
   }
 
   return (
-    <div className="bg-white">
-      <div ref={el => sectionRefs.current[0] = el} className="h-screen">
-        <Nav scrollToSection={scrollToSection}/>
-        <Header />
+    <div className="bg-white font-cousine">
+      <div ref={(el) => (sectionRefs.current[0] = el)} className="h-screen">
+        <Nav scrollToSection={scrollToSection} />
+        <Header scrollToSection={scrollToSection}/>
       </div>
-      <div ref={el => sectionRefs.current[1] = el} className="min-h-screen lg:container lg:py-20 px-5 lg:px-0">
+      <div
+        ref={(el) => (sectionRefs.current[1] = el)}
+        className="min-h-screen lg:container lg:py-20 px-5 lg:px-0"
+      >
         <HeaderText title="About Me" />
         <div className="grid lg:grid-cols-2 gap-5 lg:container">
           <AboutMeImg />
@@ -69,7 +71,7 @@ export default function Root() {
           </div>
         </div>
       </div>
-      <div ref={el => sectionRefs.current[2] = el} className="lg:container">
+      <div ref={(el) => (sectionRefs.current[2] = el)} className="lg:container">
         <div className="lg:py-10">
           <HeaderText title="projects" />
         </div>
@@ -94,7 +96,10 @@ export default function Root() {
           />
         </div>
       </div>
-      <div ref={el => sectionRefs.current[3] = el} className="w-full px-5 lg:px-0 lg:container">
+      <div
+        ref={(el) => (sectionRefs.current[3] = el)}
+        className="w-full px-5 lg:px-0 lg:container"
+      >
         <div className="min-h-3/5">
           <div className="py-10 lg:px-0 lg:container">
             <HeaderText title="Contact" />
@@ -126,7 +131,7 @@ export default function Root() {
           </div>
         </div>
       </div>
-     <Footer />
+      <Footer />
     </div>
   );
 }
