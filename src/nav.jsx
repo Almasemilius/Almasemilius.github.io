@@ -16,7 +16,7 @@ export default function Nav(props) {
           </span>
         </div>
         <div className="md:flex justify-evenly gap-20 hidden">
-          <span onClick={() => {props.scrollToSection(0); toggleNav()}} className="span-link">Home</span>
+          <span onClick={() => props.scrollToSection(0)} className="span-link">Home</span>
           <span onClick={() => props.scrollToSection(1)} className="span-link">About Me</span>
           <span onClick={() => props.scrollToSection(2)} className="span-link">Projects</span>
           <span onClick={() => props.scrollToSection(3)} className="span-link">Contact Me</span>

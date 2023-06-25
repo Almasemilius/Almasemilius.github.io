@@ -17,7 +17,7 @@ export default function ProjectCard(props) {
             </a>
         </div>
       </div>
-      <div className="p-1 text-justify text-sm lg:text-base">
+      <div className="p-2 text-justify text-sm">
         <p>
          {props.description}
         </p>
